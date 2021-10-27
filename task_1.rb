@@ -7,6 +7,7 @@
 - Each policy number should have 9 digits [0-9]
 =end
 
+require './file_writer.rb'
 
 # open the file
 file = File.open("entries.txt")
@@ -26,7 +27,6 @@ file = File.open("entries.txt")
   8 => " ||___ ||",
   9 => " | __  ||"
 }
-
 
 
 # To parse the pipes and underscore into actual numbers
@@ -104,6 +104,6 @@ file.each_line do |line|
   end
 end
 
-puts @policy_numbers
-
-file.close
+# puts @policy_numbers
+file = FileWriter.new(@policy_numbers)
+file.build_file
