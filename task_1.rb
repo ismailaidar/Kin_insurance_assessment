@@ -17,9 +17,9 @@ file = File.open("entries.txt")
 
 # numbers representation
 @numbers_representation = {
-  1 => " ||  ",
+  1 => "       ||",
   2 => " |___ |",
-  3 => " ___ ||",
+  3 => "___ ||",
   4 => "|  _  ||",
   5 => " | ___  |",
   6 => " ||___ |",
@@ -38,6 +38,7 @@ def parse_to_actual_numbers(lines)
   length = lines[:first].length 
 
   length.times do |i|
+    #puts "1st #{lines[:first][i]}, 2nd #{lines[:second][i]}, 3rd #{lines[:third][i]}"
     number_as_string = lines[:first][i] + lines[:second][i] + lines[:third][i]
     combined_lines.push(number_as_string)
   end
@@ -46,7 +47,7 @@ def parse_to_actual_numbers(lines)
   @numbers_representation.each do |number, string|
     # 2 - find if any of the numbers are in combined_lines
     if combined_lines.include? string then
-      # 3 find the index of each number
+      # 3 find the index of each number 
       indexs = find_indexes(combined_lines, string)
       for i in indexs do
         policy_numbers.push([i, number])
@@ -104,6 +105,6 @@ file.each_line do |line|
   end
 end
 
-# puts @policy_numbers
-file = FileWriter.new(@policy_numbers)
-file.build_file
+puts @policy_numbers
+#file = FileWriter.new(@policy_numbers)
+#file.build_file
