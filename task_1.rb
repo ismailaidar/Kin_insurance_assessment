@@ -108,5 +108,5 @@ file.each_line do |line|
 end
 
 puts @policy_numbers
-# file = FileWriter.new(@policy_numbers)
-# file.build_file
+file = FileWriter.new(@policy_numbers)
+file.build_file
