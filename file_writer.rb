@@ -11,7 +11,7 @@ class FileWriter
 
   def initialize(numbers)
     @numberes = numbers
-    @verifier = VerifyCheckSum.new(numbers)
+    @verifier = VerifyCheckSum.new
   end
 
   def write_to_file(string)
@@ -21,7 +21,7 @@ class FileWriter
   def build_file
     file_string = ""
     for number in @numberes do
-      file_string += "#{number} "
+      file_string += "#{number} \n"
       result = @verifier.verify(number.to_i)
       if result
         file_string += "#{Status[:err]} \n"
