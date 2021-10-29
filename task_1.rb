@@ -17,6 +17,8 @@ file = File.open("entries.txt")
 
 # numbers representation
 @numbers_representation = {
+  0 => " ||_ _ ||",
+  1 => "       ||",
   1 => "       ||",
   2 => " |___ |",
   3 => "___ ||",
@@ -106,5 +108,5 @@ file.each_line do |line|
 end
 
 puts @policy_numbers
-#file = FileWriter.new(@policy_numbers)
-#file.build_file
+# file = FileWriter.new(@policy_numbers)
+# file.build_file
