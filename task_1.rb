@@ -19,13 +19,12 @@ file = File.open("entries.txt")
 @numbers_representation = {
   0 => " ||_ _ ||",
   1 => "       ||",
-  1 => "       ||",
-  2 => " |___ |",
-  3 => "___ ||",
-  4 => "|  _  ||",
+  2 => "  |___ |",
+  3 => "   ___ ||",
+  4 => " |  _  ||",
   5 => " | ___  |",
-  6 => " ||___ |",
-  7 => "_   ||",
+  6 => " ||___  |",
+  7 => "   _   ||",
   8 => " ||___ ||",
   9 => " | __  ||"
 }
@@ -40,7 +39,6 @@ def parse_to_actual_numbers(lines)
   length = lines[:first].length 
 
   length.times do |i|
-    #puts "1st #{lines[:first][i]}, 2nd #{lines[:second][i]}, 3rd #{lines[:third][i]}"
     number_as_string = lines[:first][i] + lines[:second][i] + lines[:third][i]
     combined_lines.push(number_as_string)
   end
@@ -49,7 +47,7 @@ def parse_to_actual_numbers(lines)
   @numbers_representation.each do |number, string|
     # 2 - find if any of the numbers are in combined_lines
     if combined_lines.include? string then
-      # 3 find the index of each number 
+      # 3 find the index of each number 903 => 039
       indexs = find_indexes(combined_lines, string)
       for i in indexs do
         policy_numbers.push([i, number])
@@ -57,7 +55,8 @@ def parse_to_actual_numbers(lines)
     end
   end
   # 4 - sort numbers by index, eg 3 found in index 3 first but 9 
-      # found in index 0 last then 9 must come before 3
+      # found in index 0 last then 9 must come before 3 
+  # binding.irb
   policy_numbers = policy_numbers.sort_by { |el| el[0] }
   temp_policy = []
   policy_numbers.map {|e| temp_policy.push(e[1])}
@@ -81,7 +80,7 @@ lines = {
 }
 
 file.each_line do |line|
-    if line.length != 1 then # only empty lines == 1
+    if line.length != 1 then # only empty lines == 1 
       line.each_char do |c|
         if i == 0
           lines[:first].push(c)
@@ -108,5 +107,5 @@ file.each_line do |line|
 end
 
 puts @policy_numbers
-file = FileWriter.new(@policy_numbers)
-file.build_file
+# file = FileWriter.new(@policy_numbers)
+# file.build_file

@@ -25,8 +25,8 @@ class FileWriter
       result = @verifier.verify(number.to_i)
       if result
         file_string += "#{Status[:err]} \n"
-      # else
-      #   file_string += "#{Status[:ill]} \n"
+      else
+        file_string += "#{Status[:ill]} \n"
       end
     end
     write_to_file(file_string)
