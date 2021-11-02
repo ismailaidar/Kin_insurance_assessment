@@ -18,3 +18,10 @@ example: `ruby task_1.rb`
 
 
 After all there's no pass or fail, hope the devs will like you.
+
+## Original challenge
+https://github.com/dvrensk/bank_ocr_kata
+
+
+
+Good luck!
